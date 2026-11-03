@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"></link>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Kontrller för Filter, Sort, Map (rea)-->
+        <div class="controls">
+            <div class="control-item">
+            <!-- 1. Filtrera: kategori -->
+                <label>Kategori</label>
+                <select id="filter-category">
+                    <option value="alla">Alla</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Kläder">Kläder</option>
+                </select>
+            </div>
+
+            <!-- 2. Sort: pris -->
+             <div class="control-item">
+                <label>Sortera</label>
+                <select id="sort-price">
+                    <option value="normal">Standard</option>
+                    <option value="low-high">Pris: Lågt till högt</option>
+                    <option value="high-low">Pris: Högt till lågt</option>
+                </select>
+             </div>
+
+             <!-- MAP: Rea/Rabatt -->
+              <div class="control-item">
+                <label>Rea</label>
+                <button id="btn-discount">Ge 20% Rabatt</button>
+              </div>
+        </div>
+
+        <div id="product-container" class="product-container"></div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
