@@ -12,6 +12,8 @@ const categorySelect = document.getElementById("filter-category");
 const sortSelect = document.getElementById("sort-price");
 const discountBtn = document.getElementById("btn-discount");
 
+let hasDiscount = false
+
 //console.log(categorySelect.value)
 //console.log(sortSelect.value)
 //console.log(products);
@@ -32,6 +34,20 @@ const updateList = () => {
         result.sort((a, b) => a.price - b.price)
     } else if (sortSelect.value === "high-low") {
         result.sort((a, b) => b.price - a.price)
+    }
+
+
+    // 3. Map discount
+    if (hasDiscount) {
+        result = result.map(item => {
+            return {
+                name: item.name,
+                category: item.category,
+                price: item.price * 0.8,
+                icon: item.icon,
+            }
+        })
+        //console.log("Du har fått en 20% rabatt")
     }
 
     render(result)
@@ -57,5 +73,11 @@ const render = result => {
 // lyssnare till ändring i fälten
 categorySelect.addEventListener("change", updateList);
 sortSelect.addEventListener("change", updateList);
+discountBtn.addEventListener(`click`, () => {
+    hasDiscount = true
+    updateList()
+})
+
 
 updateList()
+
